@@ -2,10 +2,10 @@ require 'rake'
 require 'rails/generators'
 require File.expand_path('../../helpers/_autoloader.rb', __FILE__)
 
-module Cambium
+module Heartwood
   class ControllerGenerator < Rails::Generators::Base
 
-    desc "Installs a controller to use in Cambium's CMS."
+    desc "Installs a controller to use in Heartwood's CMS."
 
     source_root File.expand_path('../../templates', __FILE__)
 
@@ -15,7 +15,7 @@ module Cambium
     #   :config_check,
     #   :type => :boolean,
     #   :default => true,
-    #   :description => "Verify config at config/initializers/cambium.rb"
+    #   :description => "Verify config at config/initializers/heartwood.rb"
     # )
 
     # If there is no configuration file tell the user to run
@@ -24,8 +24,8 @@ module Cambium
     #
     # def verify_configuration
     #   if options.config_check?
-    #     unless File.exists?("#{Rails.root}/config/initializers/cambium.rb")
-    #       help_message('cambium_prereqs')
+    #     unless File.exists?("#{Rails.root}/config/initializers/heartwood.rb")
+    #       help_message('heartwood_prereqs')
     #       exit
     #     end
     #   end
@@ -60,7 +60,7 @@ module Cambium
       insert_into_file(
         "config/routes.rb",
         route,
-        :after => /mount\ Cambium\:(.*)\n/
+        :after => /mount\ Heartwood\:(.*)\n/
       )
     end
 

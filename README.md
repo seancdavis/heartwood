@@ -1,7 +1,7 @@
-Cambium
+Heartwood
 ==========
 
-Cambium serves three main purposes in Ruby on Rails applications:
+Heartwood serves three main purposes in Ruby on Rails applications:
 
 1. Bootstrap Rails' standard installation by performing additional setup
    (things I find myself doing at the beginning of every project).
@@ -15,39 +15,39 @@ out over time.
 App Setup
 ----------
 
-Cambium lets you get up and running real fast. First, start you rails project
+Heartwood lets you get up and running real fast. First, start you rails project
 as you normally would.
 
 ```text
 $ rails new my_app -d postgresql
 ```
 
-> Note: Cambium only supports PostgreSQL. If you need to use another database,
-> I suggest you add an option into Cambium and create a pull request. However,
+> Note: Heartwood only supports PostgreSQL. If you need to use another database,
+> I suggest you add an option into Heartwood and create a pull request. However,
 > I strongly encourage you to give PostgreSQL a try.
 
-Add Cambium to your Gemfile.
+Add Heartwood to your Gemfile.
 
 ```ruby
-gem 'cambium', '>= 1.0.0'
+gem 'heartwood', '>= 1.0.0'
 ```
 
 > I would probably commit at this time (so it's easy to rollback if you don't
-> like something Cambium did).
+> like something Heartwood did).
 
-Generate Cambium's (simple) configuration file.
+Generate Heartwood's (simple) configuration file.
 
 ```text
-$ bundle exec rails g cambium:install
+$ bundle exec rails g heartwood:install
 ```
 
-Edit the config (config/initializers/cambium.rb) to your liking.
+Edit the config (config/initializers/heartwood.rb) to your liking.
 
 Then, get your PostgreSQL database configured by editing `config/database.yml`
 to your appropriate settings.
 
 > **Make sure you do not commit between this step and finishing the setup
-> process.** Cambium will ignore this database.yml file, which is good, as it
+> process.** Heartwood will ignore this database.yml file, which is good, as it
 > may contain sensitive data.
 
 Then, create your database:
@@ -59,7 +59,7 @@ $ bundle exec rake db:create
 Although optional, I suggest you at least start with the default `Gemfile`.
 
 ```text
-$ bundle exec rails g cambium:gemfile
+$ bundle exec rails g heartwood:gemfile
 ```
 
 Remove the gems you don't want and then bundle.
@@ -68,10 +68,10 @@ Remove the gems you don't want and then bundle.
 $ bundle install
 ```
 
-And now you can run Cambium's auto-setup generator.
+And now you can run Heartwood's auto-setup generator.
 
 ```text
-$ bundle exec rails g cambium:app
+$ bundle exec rails g heartwood:app
 ```
 
 When you're done, you can migrate (and annotate), and be on your way!
@@ -89,23 +89,23 @@ Admin / CMS
 If you want to also setup a CMS, it's as simple as running the generator.
 
 ```text
-$ bundle exec rails g cambium:admin
+$ bundle exec rails g heartwood:admin
 ```
 
-Run the migrations Cambium created with the admin generator.
+Run the migrations Heartwood created with the admin generator.
 
 ```text
 $ bundle exec rake db:migrate
 $ bundle exec annotate
 ```
 
-Make sure Cambium's engine is mounted in your `config/routes.rb` file.
+Make sure Heartwood's engine is mounted in your `config/routes.rb` file.
 
 ```ruby
-mount Cambium::Engine => '/'
+mount Heartwood::Engine => '/'
 ```
 
-It's best to mount it at the root because Cambium automatically namespaces its
+It's best to mount it at the root because Heartwood automatically namespaces its
 routes.
 
 At this point, you should be able to go to `localhost:3000/admin` and be
@@ -115,8 +115,8 @@ user and sign in successfully, you will be redirected to the admin dashboard.
 ### Default Features
 
 When you run the generators, you will get a handful of features by default.
-Cambium now ships with users, pages, media, and settings. Of these four, users
-is the only model that will be inserted directly in your app. Cambium handles
+Heartwood now ships with users, pages, media, and settings. Of these four, users
+is the only model that will be inserted directly in your app. Heartwood handles
 the others.
 
 See below for configuration and for adding users, while the following sections
@@ -128,12 +128,12 @@ We have a generator for creating a new user, which takes an `--admin` option if
 you want the user to have admin access.
 
 ```text
-$ bundle exec rails g cambium:user [username] [password] [--admin / --no-admin]
+$ bundle exec rails g heartwood:user [username] [password] [--admin / --no-admin]
 ```
 
 ### Generating Admin Controllers
 
-A big portion of Cambium's power lies in its ability to spin up feature-full
+A big portion of Heartwood's power lies in its ability to spin up feature-full
 CMS controllers and views in a snap.
 
 Before you generate an admin controller, you need to make sure you have a
@@ -144,7 +144,7 @@ what you need at the beginning).
 Then you can run the generator.
 
 ```text
-$ bundle exec rails g cambium:controller [model]
+$ bundle exec rails g heartwood:controller [model]
 ```
 
 **Be sure you are using the proper class name of the data model.**
@@ -152,10 +152,10 @@ $ bundle exec rails g cambium:controller [model]
 For example, if I have a `Page` model, this would be the command:
 
 ```text
-$ bundle exec rails g cambium:controller Page
+$ bundle exec rails g heartwood:controller Page
 ```
 
-> Note: I'm working on making Cambium more powerful all the time. At the
+> Note: I'm working on making Heartwood more powerful all the time. At the
 > moment, it works best with simple form-type data.
 
 The generator does a few things:
@@ -164,7 +164,7 @@ The generator does a few things:
   namespace (using the example, your file would be at
   `app/controllers/admin/pages_controller.rb`).
 * Adds a namespaced route to your routes file (`config/routes.rb`).
-* Adds the Cambium config file (at `config/admin/pages.yml` in this example).
+* Adds the Heartwood config file (at `config/admin/pages.yml` in this example).
 * Adds a generic sidebar item for your controller at
   `config/admin/sidebar.yml`.
 
@@ -172,7 +172,7 @@ See below for information on the sidebar and controller settings.
 
 ### Sidebar Settings
 
-The sidebar in Cambium is driven by your `config/admin/sidebar.yml` settings
+The sidebar in Heartwood is driven by your `config/admin/sidebar.yml` settings
 file. It's pretty semantic and simple.
 
 The default sidebar is:
@@ -180,11 +180,11 @@ The default sidebar is:
 ```yaml
 dashboard:
   label: Dashboard
-  route: cambium.admin_dashboard
+  route: heartwood.admin_dashboard
   icon: dashboard
 users:
   label: Users
-  route: cambium.admin_users
+  route: heartwood.admin_users
   icon: users
   controllers: ['users']
 ```
@@ -196,7 +196,7 @@ the last `dashboard` item gets rendered.
 The options are:
 
 * `label`: Text within the sidebar link
-* `route`: Route to apply to the link (for custom settings, replace `cambium`
+* `route`: Route to apply to the link (for custom settings, replace `heartwood`
   with `main_app`)
 * `icon`: The name of the icon to use, pulled from [IcoMoon's free
   set](https://icomoon.io/#preview-free)
@@ -206,7 +206,7 @@ The options are:
 
 ### Controller Settings
 
-The controller settings are what drive the behavior of Cambium. And it's why,
+The controller settings are what drive the behavior of Heartwood. And it's why,
 for simple models, you don't have to add any code to your controller and you
 don't need any views.
 
@@ -304,7 +304,7 @@ Every setting plays a role. Let's step through each one.
 * `form:[new/edit]:fields:[field]:readonly`: If set to `true`, it will add the
   `readonly` attribute to the input field. *Not supported for markdown fields*.
 
-> Note: Aside from the usual form field types, Cambium uses [Mark It
+> Note: Aside from the usual form field types, Heartwood uses [Mark It
 > Zero!](https://github.com/seancdavis/mark_it_zero) to render markdown
 > editors. You can pass `markdown` as the `type` option and it will give you a
 > markdown editor.
@@ -322,30 +322,30 @@ to your database **as string fields**:
 - `upload_uid`
 - `upload_gravity`
 
-In addition to the features Dragonfly offers, Cambium has a built-in image
+In addition to the features Dragonfly offers, Heartwood has a built-in image
 cropper. The option for this will appear _after_ a file has been uploaded _if
 you specify the crop option for that field_. If those conditions are present,
 you'll see a "Crop Image" below the image.
 
 ### Overriding the Base Controller
 
-I've rearranged Cambium's CMS controllers so there is a blank `BaseController`
+I've rearranged Heartwood's CMS controllers so there is a blank `BaseController`
 from which it inherits. You can manually override this in your app by creating
-a `Cambium::BaseController` and loading the appropriate files.
+a `Heartwood::BaseController` and loading the appropriate files.
 
 First, generate the controller.
 
 ```text
-$ bundle exec rails g controller cambium/base
+$ bundle exec rails g controller heartwood/base
 ```
 
 That controller can inherit from any other controller in your app. The only
-thing you need to ensure is that it loads the `CambiumHelper` from the
-`Cambium` namespace. So, the base file should look like this:
+thing you need to ensure is that it loads the `HeartwoodHelper` from the
+`Heartwood` namespace. So, the base file should look like this:
 
 ```ruby
-class Cambium::BaseController < ApplicationController
-  helper Cambium::CambiumHelper
+class Heartwood::BaseController < ApplicationController
+  helper Heartwood::HeartwoodHelper
 end
 ```
 
@@ -355,12 +355,12 @@ application.
 Pages
 ----------
 
-Cambium now ships with a flexible pages feature.
+Heartwood now ships with a flexible pages feature.
 
 ### How Pages Work
 
-Cambium keeps the base functionality of the pages within the gem in the
-`Cambium::Page` model. It provides a templating engine that enables you to add
+Heartwood keeps the base functionality of the pages within the gem in the
+`Heartwood::Page` model. It provides a templating engine that enables you to add
 custom templates and apply them to individual pages.
 
 The way it works is that you apply a template to an individual page. When that
@@ -434,11 +434,11 @@ fields:
 
 The page form has a _Set as home page_ option on it. If you check this, that
 page will be designated as the home page of your application. To make it work,
-you'll have to amend your `root` call in `config/routes.rb` to load Cambium's
+you'll have to amend your `root` call in `config/routes.rb` to load Heartwood's
 home page.
 
 ```ruby
-root :to => 'cambium/pages#home'
+root :to => 'heartwood/pages#home'
 ```
 
 If you don't have a page set as the home page, this will fail gracefully. If
@@ -448,20 +448,20 @@ pages.
 
 ### Options
 
-There are a few methods on the `Cambium::Page` class:
+There are a few methods on the `Heartwood::Page` class:
 
 - `home`: The home page.
 - `published`: Published pages.
 - `unpublished`: Unpublished pages.
 
-On an instance of a `Cambium::Page`, you can call the following methods:
+On an instance of a `Heartwood::Page`, you can call the following methods:
 
 - `template`: A `PageTemplate` instance (see below for those options).
 - `body`: The body of the page (it's main block of content).
 - `published?`: Is the page published?
 - `publish!`: Publish the page.
 
-There are also a few attributes on an instance of a `Cambium::Page`:
+There are also a few attributes on an instance of a `Heartwood::Page`:
 
 - `title`
 - `slug`: Automatically generated from the title.
@@ -470,7 +470,7 @@ There are also a few attributes on an instance of a `Cambium::Page`:
 - `page_path`: The full path to the page, including ancestors.
 - `title_path`: Combines all the titles of the ancestors, split by `:`.
 
-The `Cambium::PageTemplate` class mainly focuses on the field values for a
+The `Heartwood::PageTemplate` class mainly focuses on the field values for a
 particular page, which it makes available as dynamic methods. But on the class
 itself, you have a few methods:
 
@@ -480,8 +480,8 @@ itself, you have a few methods:
 
 ### Adding Media
 
-Cambium also ships with a media library by default. You can apply files from
-the library to an individual page. But, unlike other Cambium admin controllers,
+Heartwood also ships with a media library by default. You can apply files from
+the library to an individual page. But, unlike other Heartwood admin controllers,
 you won't use `file` as the field type. Instead it is a `media` field type
 which is specifically designed to pull files from the media library.
 
@@ -520,22 +520,22 @@ But what if you wanted it cropped on the fly? You could do something like this:
 
 ### Adding/Overriding Functionality
 
-Cambium pages use the `Cambium::Page` model. If you want to add some additional
+Heartwood pages use the `Heartwood::Page` model. If you want to add some additional
 functionality or change some inherent functionality, you could create a page
-model (`app/models/page.rb`) that inherits from `Cambium::Page`.
+model (`app/models/page.rb`) that inherits from `Heartwood::Page`.
 
 ```ruby
-class Page < Cambium::Page
+class Page < Heartwood::Page
   # your custom configuration
 end
 ```
 
 You'll then need to override the controller and access the `Page` model instead
-of the `Cambium::Page` model. Place the following code in
-`app/controllers/cambium/pages_controller.rb`.
+of the `Heartwood::Page` model. Place the following code in
+`app/controllers/heartwood/pages_controller.rb`.
 
 ```ruby
-class Cambium::PagesController < ApplicationController
+class Heartwood::PagesController < ApplicationController
   def show
     slug = request.path.split('/').last
     @page = ::Page.find_by_slug(slug)
@@ -562,19 +562,19 @@ and remove it from the sidebar config (`config/admin/sidebar.yml`).
 Media Library
 ----------
 
-Cambium now ships with a media library. This lets you upload all your files to
+Heartwood now ships with a media library. This lets you upload all your files to
 one main library. This feature especially will receive much more attention over
 time. Currently, they are built to be easily connected to pages.
 
 To work with pages, see the previous section.
 
-Cambium uses Dragonfly for uploading and image processing. To access a document
-directly, you will use the `Cambium::Document` model. Once you have a
+Heartwood uses Dragonfly for uploading and image processing. To access a document
+directly, you will use the `Heartwood::Document` model. Once you have a
 individual object, you can get to the Dragonfly methods through the `upload`
 attribute.
 
 So, for example, you can get to the page of the file with
-`document.upload.url`, where `document` is a `Cambium::Document` object.
+`document.upload.url`, where `document` is a `Heartwood::Document` object.
 
 ### Options
 
@@ -589,7 +589,7 @@ Here are the other methods on a document instance:
 Site Settings
 ----------
 
-Cambium also ships with site settings, which focuses on enabling your users to
+Heartwood also ships with site settings, which focuses on enabling your users to
 change setting through the UI.
 
 You work with this like you would any other model, except it's more about
@@ -606,9 +606,9 @@ site_description:
   label: Site Description
 ```
 
-Any setting field you create you can access from the `Cambium::Setting` model.
+Any setting field you create you can access from the `Heartwood::Setting` model.
 So, for example, if you want the value of `site_title` from the above config,
-you just query: `Cambium::Setting.site_title`.
+you just query: `Heartwood::Setting.site_title`.
 
 Be warned, though, that if you need several settings on one page, you're better
 off grabbing a collection of the settings and then grabbing from your results
@@ -617,7 +617,7 @@ as you need them. I'll leave that up to you!
 Model Options
 ----------
 
-Cambium makes use of many gems, and uses the behavior of those gems to drive
+Heartwood makes use of many gems, and uses the behavior of those gems to drive
 much of its power. In many cases, this requires added options to your model.
 
 ### Searchable Models
@@ -665,7 +665,7 @@ end
 
 ### Markdown to HTML
 
-As mentioned above, Cambium uses [Mark It
+As mentioned above, Heartwood uses [Mark It
 Zero!](https://github.com/seancdavis/mark_it_zero) to render markdown editors.
 You, therefore, also have the option to store a markdown text attribute and
 have it automatically converted to HTML using the `after_save` callback.
@@ -686,7 +686,7 @@ html) of the Mark It Zero! docs for more information and options.
 Contributing
 ----------
 
-1. Fork it ( https://github.com/[my-github-username]/cambium/fork )
+1. Fork it ( https://github.com/[my-github-username]/heartwood/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

@@ -1,10 +1,10 @@
 require 'rake'
 require 'rails/generators'
 
-module Cambium
+module Heartwood
   class GemfileGenerator < Rails::Generators::Base
 
-    desc "Replace your existing Gemfile with Cambium's default Gemfile."
+    desc "Replace your existing Gemfile with Heartwood's default Gemfile."
 
     source_root File.expand_path('../../templates', __FILE__)
 
@@ -25,7 +25,7 @@ module Cambium
     private
 
       def gem_root
-        Gem::Specification.find_by_name("cambium").gem_dir
+        Gem::Specification.find_by_name("heartwood").gem_dir
       end
 
       def help_message(file)

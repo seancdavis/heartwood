@@ -1,7 +1,7 @@
 require 'rake'
 require 'rails/generators'
 
-module Cambium
+module Heartwood
   class UserGenerator < Rails::Generators::Base
 
     desc "Create a new user for your app."

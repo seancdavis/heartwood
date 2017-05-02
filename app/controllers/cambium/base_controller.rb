@@ -1,3 +1,3 @@
-class Cambium::BaseController < ActionController::Base
+class Heartwood::BaseController < ActionController::Base
   protect_from_forgery
 end

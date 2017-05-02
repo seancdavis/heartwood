@@ -1,9 +1,9 @@
 require 'rails'
 
-module Cambium
+module Heartwood
   class Engine < ::Rails::Engine
 
-    isolate_namespace Cambium
+    isolate_namespace Heartwood
 
     config.generators do |g|
       g.test_framework :rspec, :fixture => false
@@ -21,7 +21,7 @@ module Cambium
     end
 
     def root
-      @root ||= Gem::Specification.find_by_name('cambium').gem_dir.to_s
+      @root ||= Gem::Specification.find_by_name('heartwood').gem_dir.to_s
     end
 
   end

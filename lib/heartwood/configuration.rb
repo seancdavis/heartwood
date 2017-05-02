@@ -1,4 +1,4 @@
-module Cambium
+module Heartwood
   class Configuration
 
     attr_accessor :app_title,
@@ -7,7 +7,7 @@ module Cambium
                   :production_url
 
     def initialize
-      @app_title            = 'Cambium'
+      @app_title            = 'Heartwood'
       @cache_pages          = false
       @development_url      = 'localhost:3000'
       @production_url       = 'example.com'

@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'cambium/version'
+require 'heartwood/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "cambium"
-  spec.version       = Cambium::VERSION
+  spec.name          = "heartwood"
+  spec.version       = Heartwood::VERSION
   spec.authors       = ["Sean C Davis", "Warren Harrison"]
   spec.email         = ["scdavis41@gmail.com", "warren@hungry-media.com"]
   spec.summary       = %q{Rails generators to facilitate development.}

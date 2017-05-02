@@ -1,4 +1,4 @@
-module Cambium
+module Heartwood
   module GeneratorsHelper
 
     # ------------------------------------------ System Commands / Aliases
@@ -194,7 +194,7 @@ module Cambium
       say "\nThis generator installed the following gems (and added them to "
       say "your Gemfile):\n\n"
       gems.each { |g| say "    #{g}" }
-      say "\nThese gems *may* be necessary for Cambium to work properly. "
+      say "\nThese gems *may* be necessary for Heartwood to work properly. "
     end
 
     # Similar to gem_installation_notification, except here we just tell the
@@ -204,7 +204,7 @@ module Cambium
       say "\nThis generator added some gems to your Gemfile. You will want to "
       say "run:\n\n    $ bundle install"
       say "\nto complete this generator. Please note, "
-      say "these gems *may* be necessary for Cambium to work properly."
+      say "these gems *may* be necessary for Heartwood to work properly."
     end
 
     # ------------------------------------------ Miscellaneous
@@ -224,7 +224,7 @@ module Cambium
     end
 
     def gem_root
-      Gem::Specification.find_by_name("cambium").gem_dir
+      Gem::Specification.find_by_name("heartwood").gem_dir
     end
 
     def help_message(file)

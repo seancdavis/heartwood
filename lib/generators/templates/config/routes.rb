@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  # --- Cambium's Routes ---
+  # --- Heartwood's Routes ---
   #
-  # The following are Cambium's default routes. Feel free to
+  # The following are Heartwood's default routes. Feel free to
   # customize (or delete) these to fit your needs.
   #
   # ------------------------------------------ Users (Devise)
@@ -18,11 +18,11 @@ Rails.application.routes.draw do
   #
   # ------------------------------------------ Admin
   #
-  # Cambium already namespaces all its own routes, so it's
+  # Heartwood already namespaces all its own routes, so it's
   # best to just mount it at the root. This is the base
-  # setup if you are using Cambium's CMS
+  # setup if you are using Heartwood's CMS
   #
-  mount Cambium::Engine => '/'
+  mount Heartwood::Engine => '/'
   #
   # ------------------------------------------ JSON
   #

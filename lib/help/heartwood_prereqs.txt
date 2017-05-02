@@ -3,11 +3,11 @@
 
 No config file found. Please run:
 
-    rails g cambium:install
+    rails g heartwood:install
 
 Before running this generator. If you wish to
 skip this config check, you can run:
 
-    rails g cambium:install --no-config-check
+    rails g heartwood:install --no-config-check
 
 ==================================================

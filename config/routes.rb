@@ -1,2 +1,2 @@
-Cambium::Engine.routes.draw do
+Heartwood::Engine.routes.draw do
 end
