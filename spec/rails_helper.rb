@@ -150,6 +150,7 @@ RSpec.configure do |config|
   # config.include FeatureHelpers, :type => :feature
   # config.include ControllerHelpers, :type => :controller
   # config.include TestHelpers
+  config.include Heartwood::Test::SpecHelpers
 end
 
 def wait_for_requests_complete

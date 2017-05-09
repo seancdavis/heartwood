@@ -24,9 +24,9 @@ module Heartwood
     #   @root ||= Gem::Specification.find_by_name('heartwood').gem_dir.to_s
     # end
 
-    require 'heartwood/view/helpers/base_helper'
+    require 'heartwood/helpers/base_helper'
     initializer 'heartwood.view_helpers' do
-      ActionView::Base.send(:include, Heartwood::View::Helpers::BaseHelper)
+      ActionView::Base.send(:include, Heartwood::Helpers::BaseHelper)
     end
 
   end
