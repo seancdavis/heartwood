@@ -1,9 +1,13 @@
 require 'heartwood/version'
 require 'heartwood/configuration'
 
-support_files = "#{File.expand_path('../heartwood/support', __FILE__)}/*.rb"
-Dir.glob(support_files).each do |file|
-  require "heartwood/support/#{File.basename(file)}"
+autoload_dirs = %w[support test]
+
+autoload_dirs.each do |dir|
+  autoload_files = "#{File.expand_path("../heartwood/#{dir}", __FILE__)}/*.rb"
+  Dir.glob(autoload_files).each do |file|
+    require "heartwood/#{dir}/#{File.basename(file)}"
+  end
 end
 
 module Heartwood
