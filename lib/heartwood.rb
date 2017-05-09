@@ -1,7 +1,7 @@
 require 'heartwood/version'
 require 'heartwood/configuration'
 
-autoload_dirs = %w[support test]
+autoload_dirs = %w[extensions test]
 
 autoload_dirs.each do |dir|
   autoload_files = "#{File.expand_path("../heartwood/#{dir}", __FILE__)}/*.rb"
