@@ -1,0 +1,27 @@
+<div id="heartwood-impersonate">
+
+  <a href="javascript:void(0)" class="heartwood-button" onclick="hwOpenBg(event)">
+    Impersonate
+  </a>
+
+  <div class="bg-overlay">
+    <div class="user-list">
+      <ul>
+        <% users.each do |user| %>
+          <li>
+            <a href="<%= heartwood.impersonate_path(user.id) %>">
+              <%= user.name %> (<%= user.email %>)
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function hwOpenBg(event) {
+      event.preventDefault();
+      $('#heartwood-impersonate .bg-overlay').addClass('active');
+    }
+  </script>
+</div>
