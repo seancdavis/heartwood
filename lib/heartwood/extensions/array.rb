@@ -1,4 +1,5 @@
 class Array
+
   def average(attr = nil)
     return nil if size == 0
     unless attr.nil?
@@ -6,4 +7,5 @@ class Array
     end
     sum.to_f / size.to_f
   end
+
 end

@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = Dir["spec/**/*"]
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency 'bundler', '~> 1.14'
+  spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'capybara-screenshot'
   spec.add_development_dependency 'capybara'
   spec.add_development_dependency 'database_cleaner'
@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
   # spec.add_dependency 'ancestry'
   # spec.add_dependency 'bones-rails', '>= 1.1.3'
   # spec.add_dependency 'dragonfly'
+  spec.add_dependency 'hashie'
   # spec.add_dependency 'kaminari'
   # spec.add_dependency 'mark_it_zero', '~> 0.3.0'
   # spec.add_dependency 'paper_trail'

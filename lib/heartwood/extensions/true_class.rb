@@ -1,4 +1,5 @@
 class TrueClass
+
   def to_i
     1
   end
@@ -6,4 +7,5 @@ class TrueClass
   def to_bool
     self
   end
+
 end

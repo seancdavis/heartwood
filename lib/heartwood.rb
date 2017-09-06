@@ -1,6 +1,8 @@
 require 'heartwood/version'
 require 'heartwood/configuration'
 
+require 'hashie'
+
 autoload_dirs = %w[extensions test]
 
 autoload_dirs.each do |dir|
