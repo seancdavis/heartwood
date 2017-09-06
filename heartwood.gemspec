@@ -35,7 +35,7 @@ Gem::Specification.new do |spec|
   # spec.add_dependency 'paper_trail'
   # spec.add_dependency 'pg_search'
   # spec.add_dependency 'pickadate-rails'
-  spec.add_dependency 'rails', '~> 5.0.0'
+  spec.add_dependency 'rails', '~> 5.1.0'
   spec.add_dependency 'rake'
   # spec.add_dependency 'superslug', '~> 1.3.0'
   # spec.add_dependency 'trumbowyg_rails'
