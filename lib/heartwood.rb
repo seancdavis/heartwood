@@ -3,7 +3,7 @@ require 'heartwood/configuration'
 
 require 'hashie'
 
-autoload_dirs = %w[extensions services test]
+autoload_dirs = %w[extensions services test utilities]
 
 autoload_dirs.each do |dir|
   autoload_files = "#{File.expand_path("../heartwood/#{dir}", __FILE__)}/*.rb"

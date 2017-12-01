@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'capybara-screenshot'
   spec.add_development_dependency 'capybara'
   spec.add_development_dependency 'database_cleaner'
+  spec.add_development_dependency 'faker'
   spec.add_development_dependency 'factory_girl_rails'
   spec.add_development_dependency 'guard-rspec'
   spec.add_development_dependency 'poltergeist'
@@ -40,5 +41,4 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rake'
   # spec.add_dependency 'superslug', '~> 1.3.0'
   # spec.add_dependency 'trumbowyg_rails'
-
 end
