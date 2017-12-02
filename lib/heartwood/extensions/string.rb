@@ -27,4 +27,8 @@ class String
     sentences
   end
 
+  def to_title
+    humanize.titleize
+  end
+
 end

@@ -41,4 +41,10 @@ describe String do
     end
   end
 
+  describe '#to_title' do
+    it 'humanizes and titleizes itself' do
+      expect('hello_world'.to_title).to eq('Hello World')
+    end
+  end
+
 end
