@@ -93,7 +93,7 @@ module Heartwood
 
     def template_snippet(template)
       require 'erb'
-      ERB.new(File.read(template_file(template))).result(binding)
+      ERB.new(File.read(template_file("#{template}.erb"))).result(binding)
     end
 
     # Copies model concern templates to the project

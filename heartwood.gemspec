@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
   # spec.add_dependency 'bones-rails', '>= 1.1.3'
   # spec.add_dependency 'dragonfly'
   spec.add_dependency 'hashie'
+  spec.add_dependency 'nokogiri'
   # spec.add_dependency 'kaminari'
   # spec.add_dependency 'mark_it_zero', '~> 0.3.0'
   # spec.add_dependency 'paper_trail'
