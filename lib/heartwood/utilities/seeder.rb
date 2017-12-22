@@ -1,4 +1,5 @@
 require 'database_cleaner'
+require 'factory_girl'
 require 'fileutils'
 
 module Heartwood
